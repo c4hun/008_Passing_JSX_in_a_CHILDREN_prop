@@ -1,52 +1,30 @@
-import { getImageUrl } from './utils.js';
-
-function Profile ({
-  imageId,
-  name,
-  profession,
-  formation,
-  interesting,
-  imageSize = 70
-}) {
+function Card({ children, title }) {
   return (
-      <section className="profile">
-        <h2>{name}</h2>
-        <img
-          className="avatar"
-          src={getImageUrl('imageId')}
-          alt={name}
-          width={imageSize}
-          height={imageSize}
-        />
-        <ul>
-            <li><b>Profession:</b> {profession}</li>
-            <li>
-            <b>Formation: {formation.length} </b>
-            ({formation.join(', ')})
-            </li>
-          <li>
-            <b>Interesting: </b>
-            {interesting}
-          </li>
-        </ul>
-    </section>
+    <div className="card">
+      <div className="card-content">
+        <h1>{title}</h1>
+        {children}
+      </div>
+    </div>
   );
 }
 
-export default function Gallery() {
+export default function Profile() {
   return (
     <div>
-      <h1>Self Introduction</h1>
-      <Profile
-        imageId="c4hun"
-        name="Sacha, c4hun"
-        profession="Cashier"
-        interesting="Angular, AWS Cloud and Linux OS"
-        formation={[
-          '2023-2024 Studi: GRADUATE DEVELOPPEUR WEB FULL STACK',
-          'EFC formation: Assistant Accountant',
-        ]}
-      />
+      <Card title="Sacha">
+        <img
+          className="avatar"
+          src="https://avatars.githubusercontent.com/u/101428141?v=4"
+          alt="Helu"
+          width={91}
+          height={91}
+        />
+      </Card>
+      <Card title="About">
+        <p>  🥰 Hi, I’m currently learning JavaScript and its framworks(Angular, React.JS and Node.JS) for a chance on Junior Web developer(Front-End) for my study! </p>
+        <p><a href="https://github.com/c4hun">Github</a></p>
+      </Card>
     </div>
   );
 }
